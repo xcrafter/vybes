@@ -5,8 +5,8 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "dev-run:ios":"ENVFILE=.env.dev react-native run-ios",
-    "dev-run:android":"ENVFILE=.env.dev react-native run-android"
+    "dev-run:ios": "ENVFILE=.env.dev react-native run-ios",
+    "dev-run:android": "ENVFILE=.env.dev react-native run-android"
   },
   "dependencies": {
     "apisauce": "^0.14.3",
@@ -15,6 +15,9 @@
     "react-native": "0.55.3",
     "react-native-config": "^0.11.5",
     "react-native-extended-stylesheet": "^0.8.1",
+    "react-native-image-overlay": "^0.1.2",
+    "react-native-parallax-scroll-view": "^0.21.0",
+    "react-native-spinkit": "^1.1.1",
     "react-native-typography": "^1.3.0",
     "react-navigation": "^2.0.0"
   },
