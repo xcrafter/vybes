@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "dev-run:ios":"ENVFILE=.env.dev react-native run-ios",
+    "dev-run:android":"ENVFILE=.env.dev react-native run-android"
   },
   "dependencies": {
     "apisauce": "^0.14.3",
