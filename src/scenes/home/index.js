@@ -43,7 +43,7 @@ export default class Home extends Component {
       (<Loading />)
       :
       (
-        <ScrollView style={{ paddingTop: moderateScale(18), backgroundColor: '#fff', height }}>
+        <View style={{ paddingTop: moderateScale(18), backgroundColor: '#fff', height }}>
           <StatusBar
             backgroundColor={EStyleSheet.value('colorPrimary')}
             barStyle="dark-content"
@@ -61,6 +61,8 @@ export default class Home extends Component {
 
           <FlatList
             data={state.influencers}
+            onRefresh={this.getInfluencerData}
+            refreshing={this.state.isLoading}
             keyExtractor={item => item.user.id.toString()}
             renderItem={({ item, index }) => (<Influencer
               key={index}
@@ -75,7 +77,7 @@ export default class Home extends Component {
           />
 
 
-        </ScrollView>
+        </View>
       );
   }
 }
