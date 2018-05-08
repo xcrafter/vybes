@@ -65,9 +65,13 @@ export default class Home extends Component {
             keyExtractor={item => state.influencers.indexOf(item)}
             ListEmptyComponent={<Loading />}
             renderItem={({ item, index }) => (<Influencer
+              key={index}
+              navigation={this.props.navigation}
+              onPressCard={() => this.props.navigation.navigate('influencer', { id: item.user.id })}
               name={item.user.title ? item.user.title.toUpperCase() : ''}
               count={item.user.counts}
               images={item.images}
+              pic={item.user.pic}
               bio={excerpt(item.user.bio, 50)}
             />)}
           />
