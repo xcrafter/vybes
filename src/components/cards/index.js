@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, ScrollView, Dimensions, FlatList } from 'react-native';
+import { View, Image, ScrollView, Dimensions, FlatList, TouchableOpacity } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import { moderateScale } from '@helpers/scale';
 import { webWeights, human } from 'react-native-typography';
@@ -10,12 +10,12 @@ import { bold } from 'ansi-colors';
 const { width, height } = Dimensions.get('window');
 
 export const Influencer = ({
-  name, count, images, bio = '',
+  name, count, images, bio = '', pic, onPressCard,navigation
 }) =>
-  (<View style={{ padding: moderateScale(9) }}>
+  (<TouchableOpacity style={{ padding: moderateScale(9) }} onPress={() => onPressCard()} >
     <CardItem>
       <Left>
-        <Thumbnail source={{ uri: 'https://urlofseo.com/images/leemarshallavatar200.png' }} />
+        <Thumbnail source={{ uri: pic }} />
         <Body style={{ paddingLeft: moderateScale(6) }}>
           <Text style={{ fontSize: name.length > 12 ? moderateScale(11) : moderateScale(14), fontWeight: '600', ...human.bold }}>{name}
           </Text>
@@ -51,15 +51,15 @@ export const Influencer = ({
       data={images}
       keyExtractor={item => images.indexOf(item)}
       horizontal
-      renderItem={({ item, index }) => (<ImageCard url={item} />)}
+      renderItem={({ item, index }) => (<ImageCard url={item.imageName} onPress={() => navigation.navigate('items', { id: item.id })} />)}
     />
 
 
-  </View>);
+  </TouchableOpacity>);
 
-export const ImageCard = ({ url }) =>
+export const ImageCard = ({ url, onPress }) =>
   (
-    <View style={{ width: width / 2, height: width / 2, padding: moderateScale(5) }}>
+    <TouchableOpacity onPress={() => onPress()} style={{ width: width / 2, height: width / 2, padding: moderateScale(5) }}>
       <Image
         style={{
             flex: 1,
@@ -70,18 +70,21 @@ export const ImageCard = ({ url }) =>
         source={{ uri: url }}
       />
 
-    </View>
+    </TouchableOpacity>
 
   );
 
 export const ImageCardWithTitle = props =>
   (
-    <View style={{
+    <TouchableOpacity
+      style={{
     width: width / 1.5,
     height: width / 1.5,
+    margin: moderateScale(7),
     padding: moderateScale(5),
     backgroundColor: EStyleSheet.value('$colorTertiary'),
  }}
+      onPress={() => props.onPress()}
     >
       <Image
         style={{
@@ -90,11 +93,11 @@ export const ImageCardWithTitle = props =>
             height: null,
             resizeMode: 'cover',
             }}
-        source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
+        source={{ uri: props.imageName }}
       />
 
-      <Text style={{ fontSize: moderateScale(12) }}>This is a sample text below</Text>
-    </View>
+      <Text style={{ fontSize: moderateScale(12) }}>{props.title}</Text>
+    </TouchableOpacity>
 
 
   );
