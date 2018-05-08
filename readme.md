@@ -19,5 +19,5 @@ Enviornments
 Install the dependencies and devDependencies and start the server.
 
 ```sh
-$ "ENVFILE=.env.dev react-native run-ios"
-```
+$ ENVFILE=.env.dev react-native run-ios
+``` 
