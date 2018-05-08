@@ -15,11 +15,7 @@ const homeRouter = StackNavigator({
   },
   lazy: true,
   animationEnabled: true,
-  tabBarOptions: {
-    style: {
-      backgroundColor: '#fff',
-    },
-  },
+
 
 });
 
