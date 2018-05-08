@@ -7,5 +7,5 @@ EStyleSheet.build({
   $colorTertiary: '#ecf0f1',
   $darkText: '#131418',
   $lightText: '#fff',
-  $primaryFontColor:'#4527A0',
+  $primaryFontColor: '#4527A0',
 });
