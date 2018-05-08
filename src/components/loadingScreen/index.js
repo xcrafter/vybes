@@ -12,7 +12,7 @@ export default class Loading extends Component {
 }}
       >
         <StatusBar
-          backgroundColor={EStyleSheet.value('colorPrimary')}
+          backgroundColor={EStyleSheet.value('$colorPrimary')}
           barStyle="dark-content"
         />
         <Spinner

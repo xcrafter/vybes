@@ -51,6 +51,7 @@ export const Influencer = ({
       data={images}
       keyExtractor={item => item.id.toString()}
       horizontal
+      showsHorizontalScrollIndicator={false}
       renderItem={({ item, index }) => (<ImageCard url={item.imageName} onPress={() => navigation.navigate('items', { id: item.id })} />)}
     />
 

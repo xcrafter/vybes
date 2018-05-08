@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Image, Text, StatusBar, Dimensions, FlatList } from 'react-native';
+import { View, ScrollView, Image, Text, StatusBar, Dimensions, FlatList,Platform } from 'react-native';
 import { moderateScale } from '@helpers/scale';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import { ImageCardWithTitle } from '../../components/cards';
@@ -48,9 +48,9 @@ export default class Influencers extends Component {
   render() {
     const { memberDetails } = this.state;
     return (
-      <ScrollView style={{ paddingTop: moderateScale(18), backgroundColor: '#fff', height }}>
+      <ScrollView style={{ paddingTop: Platform.OS === 'ios'?moderateScale(18):0, backgroundColor: '#fff', height }}>
         <StatusBar
-          backgroundColor={EStyleSheet.value('colorPrimary')}
+          backgroundColor={EStyleSheet.value('$colorPrimary')}
           barStyle="dark-content"
         />
 
