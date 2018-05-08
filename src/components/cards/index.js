@@ -4,7 +4,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import { moderateScale } from '@helpers/scale';
 import { webWeights, human } from 'react-native-typography';
 
-import { CardItem, Thumbnail, Text, Icon, Left, Body } from 'native-base';
+import { CardItem, Thumbnail, Text, Icon, Left, Body, Item } from 'native-base';
 import { bold } from 'ansi-colors';
 
 const { width, height } = Dimensions.get('window');
@@ -49,7 +49,7 @@ export const Influencer = ({
 
     <FlatList
       data={images}
-      keyExtractor={item => images.indexOf(item)}
+      keyExtractor={item => item.id.toString()}
       horizontal
       renderItem={({ item, index }) => (<ImageCard url={item.imageName} onPress={() => navigation.navigate('items', { id: item.id })} />)}
     />

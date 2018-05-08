@@ -80,7 +80,7 @@ export default class Influencers extends Component {
           horizontal
           showsHorizontalScrollIndicator={false}
           data={this.state.imagesList}
-          keyExtractor={item => this.state.imagesList.indexOf(item)}
+          keyExtractor={item => item.id.toString()}
           renderItem={({ item, index }) => (<ImageCardWithTitle
             onPress={() => this.props.navigation.navigate('items', { id: item.id })}
             imageName={item.image}

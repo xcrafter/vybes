@@ -32,7 +32,6 @@ export default class Home extends Component {
         isLoading: false,
       });
     }).catch((ex) => {
-      alert('Something went wrong');
       this.setState({
         isLoading: false,
       });
@@ -62,8 +61,7 @@ export default class Home extends Component {
 
           <FlatList
             data={state.influencers}
-            keyExtractor={item => state.influencers.indexOf(item)}
-            ListEmptyComponent={<Loading />}
+            keyExtractor={item => item.user.id.toString()}
             renderItem={({ item, index }) => (<Influencer
               key={index}
               navigation={this.props.navigation}
